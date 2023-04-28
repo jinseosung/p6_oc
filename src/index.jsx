@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Logement from "./pages/Logement";
 import Error from "./components/Error";
+import ScrollToTop from "./utils/Scroll";
 import "./utils/style/style.css";
 
 const container = document.getElementById("root");
@@ -14,6 +15,7 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
