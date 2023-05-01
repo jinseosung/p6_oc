@@ -7,6 +7,7 @@
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  height: 100vh;
 }
 
 h1,
@@ -25,4 +26,9 @@ figcaption {
 
 ul {
   list-style: none;
+}
+
+#root {
+  max-width: 1400px;
+  margin: 0 auto;
 }
