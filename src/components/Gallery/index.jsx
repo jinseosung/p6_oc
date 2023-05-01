@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styles from "../../utils/style/Gallery.module.css";
-import ArrowLeftImg from "../../assets/arrow_left.png";
-import ArrowRightImg from "../../assets/arrow_right.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 const Gallery = ({ filteredLogement }) => {
   const filteredLogementImg = filteredLogement.pictures;
@@ -27,17 +28,15 @@ const Gallery = ({ filteredLogement }) => {
       />
       {filteredLogementImg.length > 1 && (
         <div className={styles.CounterContainer}>
-          <img
+          <FontAwesomeIcon
             className={styles.ArrowLeft}
             onClick={prevImg}
-            src={ArrowLeftImg}
-            alt="Arrow left"
+            icon={faChevronLeft}
           />
-          <img
+          <FontAwesomeIcon
             className={styles.ArrowRight}
             onClick={nextImg}
-            src={ArrowRightImg}
-            alt="Arrow right"
+            icon={faChevronRight}
           />
           <p className={styles.Counter}>{`${imgIndex + 1}/${
             filteredLogementImg.length

@@ -1,11 +1,10 @@
 import styles from "../../utils/style/Error.module.css";
 import { Link } from "react-router-dom";
-import ErrorImg from "../../assets/404.png";
 
 const Error = () => {
   return (
     <div className={styles.Container}>
-      <img className={styles.Img} src={ErrorImg} alt="Error" />
+      <h1 className={styles.Error}>404</h1>
       <p className={styles.Description}>
         Oups! La page que vous demandez n'existe pas.
       </p>

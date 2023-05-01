@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import styles from "../../utils/style/Collapse.module.css";
-import ArrowUp from "../../assets/arrow_up.png";
-import ArrowDown from "../../assets/arrow_down.png";
 
 const Collaps = ({ title, description }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,9 +15,9 @@ const Collaps = ({ title, description }) => {
       <div className={styles.TitleContainer} onClick={toggleCollaps}>
         <p className={styles.Title}>{title}</p>
         {isOpen ? (
-          <img className={styles.Arrow} src={ArrowDown} alt="Arrow down" />
+          <FontAwesomeIcon className={styles.Arrow} icon={faChevronDown} />
         ) : (
-          <img className={styles.Arrow} src={ArrowUp} alt="Arrow up" />
+          <FontAwesomeIcon className={styles.Arrow} icon={faChevronUp} />
         )}
       </div>
       {isOpen && (

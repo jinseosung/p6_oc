@@ -21,7 +21,8 @@
 }
 
 .Arrow {
-  width: 1.5em;
+  color: #ffffff;
+  font-size: 1.7em;
 }
 
 .DescriptionContainer {
@@ -54,6 +55,10 @@
 
   .Title {
     font-size: 0.8em;
+  }
+
+  .Arrow {
+    font-size: 1em;
   }
 
   .Description {

@@ -3,8 +3,8 @@ import styles from "../../utils/style/Logement.module.css";
 import Tags from "../../components/Tags";
 import Collaps from "../../components/Collapse";
 import logementsData from "../../datas/logements.json";
-import starPink from "../../assets/star_pink.png";
-import starGray from "../../assets/star_gray.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Gallery from "../../components/Gallery";
 
 const Logement = () => {
@@ -42,19 +42,17 @@ const Logement = () => {
           </div>
           <div className={styles.RatingContainer}>
             {filteredRateArray.map((rate) => (
-              <img
+              <FontAwesomeIcon
                 className={styles.Rating}
                 key={rate}
-                src={starPink}
-                alt="starPink"
+                icon={faStar}
               />
             ))}
             {restedRateArray.map((rate) => (
-              <img
-                className={styles.Rating}
+              <FontAwesomeIcon
+                className={`${styles.Rating} ${styles.Gray}`}
                 key={rate}
-                src={starGray}
-                alt="starGray"
+                icon={faStar}
               />
             ))}
           </div>
