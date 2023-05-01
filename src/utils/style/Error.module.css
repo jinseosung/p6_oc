@@ -1,0 +1,48 @@
+.Container {
+  padding: 10em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.Img {
+  width: 37.3em;
+  margin-bottom: 4em;
+}
+
+.Description {
+  color: #ff6060;
+  font-size: 2.25em;
+}
+
+.Link {
+  margin-top: 11em;
+  color: #ff6060;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+.Link :hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .Container {
+    padding: 0 3.5em;
+  }
+
+  .Img {
+    width: 12em;
+    margin-bottom: 0.6em;
+  }
+
+  .Description {
+    font-size: 1.2em;
+  }
+
+  .Link {
+    margin-top: 8em;
+  }
+}

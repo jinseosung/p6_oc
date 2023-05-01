@@ -1,69 +1,7 @@
 import { useState } from "react";
-import styled from "styled-components";
+import styles from "../../utils/style/Collapse.module.css";
 import ArrowUp from "../../assets/arrow_up.png";
 import ArrowDown from "../../assets/arrow_down.png";
-
-const CollapsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2em;
-  @media screen and (max-width: 767px) {
-    margin-bottom: 1.25em;
-  }
-`;
-
-const CollapsTitleContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.3em 1em;
-  background-color: #ff6060;
-  border-radius: 5px;
-  z-index: 99;
-  cursor: pointer;
-`;
-
-const CollapsTitle = styled.p`
-  color: #ffffff;
-  font-size: 1.5em;
-  @media screen and (max-width: 767px) {
-    font-size: 0.8em;
-  }
-`;
-
-const ArrowImg = styled.img`
-  width: 1.5em;
-`;
-
-const CollapsDescriptionContainer = styled.div`
-  background-color: #f6f6f6;
-  border-radius: 5px;
-  width: 100%;
-  padding: 2.2em;
-  transform: translate(0, -0.4em);
-`;
-
-const CollapsDescription = styled.p`
-  font-size: 1.5em;
-  color: #ff6060;
-  @media screen and (max-width: 767px) {
-    font-size: 0.75em;
-  }
-`;
-
-const CollapsList = styled.ul`
-  list-style: none;
-  color: #ff6060;
-  margin: 0;
-  padding-left: 0;
-`;
-
-const CollapsListItem = styled.li`
-  font-size: 1.5em;
-  @media screen and (max-width: 767px) {
-    font-size: 0.75em;
-  }
-`;
 
 const Collaps = ({ title, description }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -72,25 +10,31 @@ const Collaps = ({ title, description }) => {
   };
 
   return (
-    <CollapsContainer>
-      <CollapsTitleContainer onClick={toggleCollaps}>
-        <CollapsTitle>{title}</CollapsTitle>
-        {isOpen ? <ArrowImg src={ArrowDown} /> : <ArrowImg src={ArrowUp} />}
-      </CollapsTitleContainer>
+    <div className={styles.Container}>
+      <div className={styles.TitleContainer} onClick={toggleCollaps}>
+        <p className={styles.Title}>{title}</p>
+        {isOpen ? (
+          <img className={styles.Arrow} src={ArrowDown} alt="Arrow down" />
+        ) : (
+          <img className={styles.Arrow} src={ArrowUp} alt="Arrow up" />
+        )}
+      </div>
       {isOpen && (
-        <CollapsDescriptionContainer>
+        <div className={styles.DescriptionContainer}>
           {title === "Équipements" && typeof description === "object" ? (
-            <CollapsList>
+            <ul className={styles.List}>
               {description.map((li, index) => (
-                <CollapsListItem key={`${li}-${index}`}>{li}</CollapsListItem>
+                <li className={styles.ListItem} key={`${li}-${index}`}>
+                  {li}
+                </li>
               ))}
-            </CollapsList>
+            </ul>
           ) : (
-            <CollapsDescription>{description}</CollapsDescription>
+            <p className={styles.Description}>{description}</p>
           )}
-        </CollapsDescriptionContainer>
+        </div>
       )}
-    </CollapsContainer>
+    </div>
   );
 };
 

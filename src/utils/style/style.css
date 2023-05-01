@@ -9,7 +9,20 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-p {
+h1,
+h2,
+p,
+figure,
+figcaption {
   margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
   word-break: break-word;
+}
+
+ul {
+  list-style: none;
 }

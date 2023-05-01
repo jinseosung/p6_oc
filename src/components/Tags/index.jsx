@@ -1,15 +1,7 @@
-import styled from "styled-components";
+import styles from "../../utils/style/Tags.module.css";
 
-const StyledTag = styled.div`
-  padding: 0.15em 1.3em;
-  background-color: #ff6060;
-  color: #ffffff;
-  font-size: 0.8em;
-  border-radius: 10px;
-`;
-
-const Tags = ({tags}) => {
-  return <StyledTag>{tags}</StyledTag>;
+const Tags = ({ tags }) => {
+  return <div className={styles.Tags}>{tags}</div>;
 };
 
 export default Tags;

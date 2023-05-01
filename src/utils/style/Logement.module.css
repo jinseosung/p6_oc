@@ -1,0 +1,138 @@
+.Container {
+  padding: 1.2em 6.25em;
+  display: flex;
+  flex-direction: column;
+}
+
+.MainContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+.MainContainerLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #ff6060;
+}
+
+.Title {
+  font-size: 2.2em;
+}
+
+.Description {
+  font-size: 1.2em;
+}
+
+.TagsContainer {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0 0.6em;
+  margin-top: 1.25em;
+}
+
+.MainContainerRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  color: #ff6060;
+  gap: 1.6em 0;
+}
+
+.HostContainer {
+  display: flex;
+  gap: 0 0.6em;
+  justify-content: center;
+  align-items: center;
+}
+
+.HostTitle {
+  font-size: 1.2em;
+}
+
+.HostImg {
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+}
+
+.RatingContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.9em;
+}
+
+.Rating {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.CollapsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.CollapsWrapper {
+  width: 47%;
+}
+
+@media (max-width: 767px) {
+  .Container {
+    padding: 0 1.2em;
+  }
+
+  .MainContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .Title {
+    font-size: 1.2em;
+  }
+
+  .Description {
+    font-size: 0.9em;
+  }
+
+  .TagsContainer {
+    margin-top: 0.6em;
+  }
+
+  .MainContainerRight {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1em;
+  }
+
+  .HostTitle {
+    font-size: 0.7em;
+  }
+
+  .HostImg {
+    width: 2em;
+    height: 2em;
+  }
+
+  .RatingContainer {
+    gap: 0.4em;
+    order: -1;
+  }
+
+  .Rating {
+    width: 0.8em;
+    height: 0.8em;
+  }
+
+  .CollapsContainer {
+    flex-direction: column;
+  }
+
+  .CollapsWrapper {
+    width: 100%;
+  }
+}

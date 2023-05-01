@@ -1,136 +1,11 @@
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
+import styles from "../../utils/style/Logement.module.css";
 import Tags from "../../components/Tags";
 import Collaps from "../../components/Collapse";
 import logementsData from "../../datas/logements.json";
 import starPink from "../../assets/star_pink.png";
 import starGray from "../../assets/star_gray.png";
 import Gallery from "../../components/Gallery";
-
-const LogementContainer = styled.div`
-  padding: 1.2em 6.25em;
-  display: flex;
-  flex-direction: column;
-  @media screen and (max-width: 767px) {
-    padding: 0 1.2em;
-  }
-`;
-
-const LogementInfoContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5em;
-  @media screen and (max-width: 767px) {
-    flex-direction: column;
-    align-items: stretch;
-  }
-`;
-
-const LogementInfoContainerLeft = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  color: #ff6060;
-`;
-
-const LogementTitle = styled.p`
-  font-size: 2.2em;
-  @media screen and (max-width: 767px) {
-    font-size: 1.2em;
-  }
-`;
-
-const LogementDescription = styled.p`
-  font-size: 1.2em;
-  @media screen and (max-width: 767px) {
-    font-size: 0.9em;
-  }
-`;
-
-const LogementTagContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  gap: 0 0.6em;
-  margin-top: 1.25em;
-  @media screen and (max-width: 767px) {
-    margin-top: 0.6em;
-  }
-`;
-
-const LogementInfoContainerRight = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  color: #ff6060;
-  gap: 1.6em 0;
-  @media screen and (max-width: 767px) {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 1em;
-  }
-`;
-
-const LogementHostContainer = styled.div`
-  display: flex;
-  gap: 0 0.6em;
-  justify-content: center;
-  align-items: center;
-`;
-
-const LogementHostTitle = styled.p`
-  font-size: 1.2em;
-  @media screen and (max-width: 767px) {
-    font-size: 0.7em;
-  }
-`;
-
-const LogementHostImg = styled.img`
-  width: 4em;
-  height: 4em;
-  border-radius: 50%;
-  @media screen and (max-width: 767px) {
-    width: 2em;
-    height: 2em;
-  }
-`;
-
-const LogementRateContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.9em;
-  @media screen and (max-width: 767px) {
-    gap: 0.4em;
-    order: -1;
-  }
-`;
-
-const LogementRate = styled.img`
-  width: 1.5em;
-  height: 1.5em;
-  @media screen and (max-width: 767px) {
-    width: 0.8em;
-    height: 0.8em;
-  }
-`;
-
-const CollapsContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  @media screen and (max-width: 767px) {
-    flex-direction: column;
-  }
-`;
-
-const CollapsWrapper = styled.div`
-  width: 47%;
-  @media screen and (max-width: 767px) {
-    width: 100%;
-  }
-`;
 
 const Logement = () => {
   const { logementId } = useParams();
@@ -144,48 +19,62 @@ const Logement = () => {
   const restedRateArray = [...Array(restedRate)].map((v, i) => i);
 
   return (
-    <LogementContainer>
+    <div className={styles.Container}>
       <Gallery filteredLogement={filteredLogement} />
-      <LogementInfoContainer>
-        <LogementInfoContainerLeft>
-          <LogementTitle>{filteredLogement.title}</LogementTitle>
-          <LogementDescription>{filteredLogement.location}</LogementDescription>
-          <LogementTagContainer>
+      <div className={styles.MainContainer}>
+        <div className={styles.MainContainerLeft}>
+          <h1 className={styles.Title}>{filteredLogement.title}</h1>
+          <p className={styles.Description}>{filteredLogement.location}</p>
+          <div className={styles.TagsContainer}>
             {filteredTags.map((tags, index) => (
               <Tags key={`${tags}-${index}`} tags={tags} />
             ))}
-          </LogementTagContainer>
-        </LogementInfoContainerLeft>
-        <LogementInfoContainerRight>
-          <LogementHostContainer>
-            <LogementHostTitle>{filteredLogement.host.name}</LogementHostTitle>
-            <LogementHostImg src={filteredLogement.host.picture} />
-          </LogementHostContainer>
-          <LogementRateContainer>
+          </div>
+        </div>
+        <div className={styles.MainContainerRight}>
+          <div className={styles.HostContainer}>
+            <h2 className={styles.HostTitle}>{filteredLogement.host.name}</h2>
+            <img
+              className={styles.HostImg}
+              src={filteredLogement.host.picture}
+              alt={filteredLogement.host.name}
+            />
+          </div>
+          <div className={styles.RatingContainer}>
             {filteredRateArray.map((rate) => (
-              <LogementRate key={rate} src={starPink} />
+              <img
+                className={styles.Rating}
+                key={rate}
+                src={starPink}
+                alt="starPink"
+              />
             ))}
             {restedRateArray.map((rate) => (
-              <LogementRate key={rate} src={starGray} />
+              <img
+                className={styles.Rating}
+                key={rate}
+                src={starGray}
+                alt="starGray"
+              />
             ))}
-          </LogementRateContainer>
-        </LogementInfoContainerRight>
-      </LogementInfoContainer>
-      <CollapsContainer>
-        <CollapsWrapper>
+          </div>
+        </div>
+      </div>
+      <div className={styles.CollapsContainer}>
+        <div className={styles.CollapsWrapper}>
           <Collaps
             title={"Description"}
             description={filteredLogement.description}
           />
-        </CollapsWrapper>
-        <CollapsWrapper>
+        </div>
+        <div className={styles.CollapsWrapper}>
           <Collaps
             title={"Équipements"}
             description={filteredLogement.equipments}
           />
-        </CollapsWrapper>
-      </CollapsContainer>
-    </LogementContainer>
+        </div>
+      </div>
+    </div>
   );
 };
 
