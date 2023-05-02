@@ -4,15 +4,15 @@ import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import styles from "../../utils/style/Collapse.module.css";
 
-const Collaps = ({ title, description }) => {
+const Collapse = ({ title, description }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const toggleCollaps = () => {
+  const toggleCollapse = () => {
     !isOpen ? setIsOpen(true) : setIsOpen(false);
   };
 
   return (
     <div className={styles.Container}>
-      <div className={styles.TitleContainer} onClick={toggleCollaps}>
+      <div className={styles.TitleContainer} onClick={toggleCollapse}>
         <p className={styles.Title}>{title}</p>
         {isOpen ? (
           <FontAwesomeIcon className={styles.Arrow} icon={faChevronDown} />
@@ -39,16 +39,4 @@ const Collaps = ({ title, description }) => {
   );
 };
 
-// Collaps.propTypes = {
-//   title: PropTypes.string.isRequired,
-//   description: PropTypes.string.isRequired,
-//   equipement: PropTypes.string,
-// }
-
-// Collaps.defaultProps = {
-//   title: '',
-//   description: '',
-//   equipement: '',
-// }
-
-export default Collaps;
+export default Collapse;

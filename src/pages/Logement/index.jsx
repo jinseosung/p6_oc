@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import styles from "../../utils/style/Logement.module.css";
 import Tags from "../../components/Tags";
-import Collaps from "../../components/Collapse";
+import Collapse from "../../components/Collapse";
 import logementsData from "../../datas/logements.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -58,15 +58,15 @@ const Logement = () => {
           </div>
         </div>
       </div>
-      <div className={styles.CollapsContainer}>
-        <div className={styles.CollapsWrapper}>
-          <Collaps
+      <div className={styles.CollapseContainer}>
+        <div className={styles.CollapseWrapper}>
+          <Collapse
             title={"Description"}
             description={filteredLogement.description}
           />
         </div>
-        <div className={styles.CollapsWrapper}>
-          <Collaps
+        <div className={styles.CollapseWrapper}>
+          <Collapse
             title={"Équipements"}
             description={filteredLogement.equipments}
           />

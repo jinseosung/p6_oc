@@ -74,12 +74,12 @@
   color: #e3e3e3;
 }
 
-.CollapsContainer {
+.CollapseContainer {
   display: flex;
   justify-content: space-between;
 }
 
-.CollapsWrapper {
+.CollapseWrapper {
   width: 47%;
 }
 
@@ -130,11 +130,11 @@
     font-size: 0.8em;
   }
 
-  .CollapsContainer {
+  .CollapseContainer {
     flex-direction: column;
   }
 
-  .CollapsWrapper {
+  .CollapseWrapper {
     width: 100%;
   }
 }
