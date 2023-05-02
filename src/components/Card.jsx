@@ -1,4 +1,4 @@
-import styles from "../../utils/style/Card.module.css";
+import styles from "../utils/style/Card.module.css";
 
 const Card = ({ id, title, cover }) => {
   return (

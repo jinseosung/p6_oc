@@ -1,5 +1,5 @@
-import styles from "../../utils/style/Footer.module.css";
-import FooterLogoImg from "../../assets/logo_footer.png";
+import styles from "../utils/style/Footer.module.css";
+import FooterLogoImg from "../assets/logo_footer.png";
 
 const Footer = () => {
   return (

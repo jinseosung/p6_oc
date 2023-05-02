@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
-import styles from "../../utils/style/Collapse.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import styles from "../utils/style/Collapse.module.css";
 
 const Collapse = ({ title, description }) => {
   const [isOpen, setIsOpen] = useState(false);

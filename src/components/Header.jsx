@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
-import styles from "../../utils/style/Header.module.css";
+import styles from "../utils/style/Header.module.css";
 import { Link } from "react-router-dom";
-import LogoImg from "../../assets/logo.png";
+import LogoImg from "../assets/logo.png";
 
 const Header = () => {
   const location = useLocation().pathname;

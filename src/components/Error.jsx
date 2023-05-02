@@ -1,4 +1,4 @@
-import styles from "../../utils/style/Error.module.css";
+import styles from "../utils/style/Error.module.css";
 import { Link } from "react-router-dom";
 
 const Error = () => {

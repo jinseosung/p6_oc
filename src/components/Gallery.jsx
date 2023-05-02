@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../../utils/style/Gallery.module.css";
+import styles from "../utils/style/Gallery.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
