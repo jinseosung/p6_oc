@@ -42,15 +42,14 @@
   padding: 3.5em 3.1em;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   background-color: #f6f6f6;
   border-radius: 25px;
+  gap: 1.2em 2%;
 }
 
 .Link {
   width: 32%;
   max-height: 15em;
-  margin-bottom: 1.2em;
 }
 
 @media (max-width: 767px) {
