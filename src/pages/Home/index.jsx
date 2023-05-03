@@ -4,6 +4,7 @@ import styles from "../../utils/style/Home.module.css";
 import { Link } from "react-router-dom";
 import Card from "../../components/Card";
 import LandscapeImg from "../../assets/landscape.png";
+import Loader from "../../components/Loader";
 
 const Home = () => {
   const { logements, isLogementsLoading, error } = useFetch();
@@ -11,8 +12,9 @@ const Home = () => {
   if (error) {
     navigate("/404");
   }
-
-  if (!isLogementsLoading && logements) {
+  if (isLogementsLoading) {
+    return <Loader />;
+  } else if (logements) {
     return (
       <div className={styles.Container}>
         <div className={styles.ImgContainer}>

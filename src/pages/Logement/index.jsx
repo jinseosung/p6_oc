@@ -7,6 +7,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Gallery from "../../components/Gallery";
 import { useFetchId } from "../../utils/UseFetch";
 import { useEffect } from "react";
+import Loader from "../../components/Loader";
 
 const Logement = () => {
   const { logementId } = useParams();
@@ -28,7 +29,9 @@ const Logement = () => {
     navigate("/404");
   }
 
-  if (!isLogementsLoading && logements) {
+  if (isLogementsLoading) {
+    return <Loader />;
+  } else if (logements) {
     const ratingNum = parseInt(rating);
     const ratingNumArray = [...Array(ratingNum)].map((v, i) => i);
     const restedRating = 5 - ratingNum;
