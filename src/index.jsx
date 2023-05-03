@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Logement from "./pages/Logement";
-import Error from "./components/Error";
+import Error from "./pages/Error";
 import ScrollToTop from "./utils/ScrollToTop";
 import "./utils/style/style.css";
 
