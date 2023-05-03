@@ -4,32 +4,6 @@
   flex-direction: column;
 }
 
-.ImgContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  margin-bottom: 2.6em;
-}
-
-.Img {
-  width: 100%;
-  height: 13.9em;
-  object-fit: cover;
-  border-radius: 25px;
-}
-
-.BgContainer {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 25px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .MainContainer {
   width: 81%;
   margin: 0 auto;
@@ -38,15 +12,6 @@
 @media (max-width: 767px) {
   .Container {
     padding: 0 1.2em;
-  }
-
-  .ImgContainer {
-    margin-bottom: 1.25em;
-  }
-
-  .Img,
-  .BgContainer {
-    border-radius: 10px;
   }
 
   .MainContainer {

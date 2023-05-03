@@ -2,14 +2,12 @@ import Collapse from "../../components/Collapse";
 import styles from "../../utils/style/About.module.css";
 import aboutList from "../../datas/about.json";
 import LandscapeImg from "../../assets/kalen-emsley-Bkci_8qcdvQ-unsplash 2.png";
+import Background from "../../components/Background";
 
 const About = () => {
   return (
     <div className={styles.Container}>
-      <div className={styles.ImgContainer}>
-        <img className={styles.Img} src={LandscapeImg} alt="Landscape" />
-        <div className={styles.BgContainer}></div>
-      </div>
+      <Background img={LandscapeImg} />
       <div className={styles.MainContainer}>
         {aboutList.map((list, index) => (
           <Collapse

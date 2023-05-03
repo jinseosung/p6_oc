@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Card from "../../components/Card";
 import LandscapeImg from "../../assets/landscape.png";
 import Loader from "../../components/Loader";
+import Background from "../../components/Background";
 
 const Home = () => {
   const { logements, isLogementsLoading, error } = useFetch();
@@ -17,12 +18,10 @@ const Home = () => {
   } else if (logements) {
     return (
       <div className={styles.Container}>
-        <div className={styles.ImgContainer}>
-          <img className={styles.Img} src={LandscapeImg} alt="Landscape" />
-          <div className={styles.TitleContainer}>
-            <h1 className={styles.Title}>Chez vous, partout et ailleurs</h1>
-          </div>
-        </div>
+        <Background
+          img={LandscapeImg}
+          title={`Chez vous, partout et ailleurs`}
+        />
         <div className={styles.MainContainer}>
           {logements.map((logement) => (
             <Link
