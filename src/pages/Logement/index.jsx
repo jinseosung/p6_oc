@@ -6,19 +6,29 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Gallery from "../../components/Gallery";
 import { useFetchId } from "../../utils/UseFetch";
+import { useEffect } from "react";
 
 const Logement = () => {
   const { logementId } = useParams();
   const { logements, isLogementsLoading, error } = useFetchId(logementId);
   const navigate = useNavigate();
   const { title, description, location, host, tags, rating, equipments } =
-    logements;
+    logements || {};
+
+  useEffect(() => {
+    const navigateTo404 = async () => {
+      if (!logements) {
+        navigate("/404");
+      }
+    };
+    navigateTo404();
+  }, [navigate, logements]);
 
   if (error) {
-    navigate("/Error");
+    navigate("/404");
   }
 
-  if (!isLogementsLoading) {
+  if (!isLogementsLoading && logements) {
     const ratingNum = parseInt(rating);
     const ratingNumArray = [...Array(ratingNum)].map((v, i) => i);
     const restedRating = 5 - ratingNum;

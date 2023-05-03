@@ -16,7 +16,7 @@ export const useFetch = () => {
       } catch (err) {
         console.log(err);
         setError(true);
-        navigate("/Error");
+        navigate("/404");
       } finally {
         setLogementsLoading(false);
       }
@@ -41,7 +41,7 @@ export const useFetchId = (logementId) => {
       } catch (err) {
         console.log(err);
         setError(true);
-        navigate("/Error");
+        navigate("/404");
       } finally {
         setLogementsLoading(false);
       }

@@ -9,10 +9,10 @@ const Home = () => {
   const { logements, isLogementsLoading, error } = useFetch();
   const navigate = useNavigate();
   if (error) {
-    navigate("/Error");
+    navigate("/404");
   }
 
-  if (!isLogementsLoading) {
+  if (!isLogementsLoading && logements) {
     return (
       <div className={styles.Container}>
         <div className={styles.ImgContainer}>
