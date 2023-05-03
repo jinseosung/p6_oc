@@ -2,18 +2,17 @@ import { useParams, useNavigate } from "react-router-dom";
 import styles from "../../utils/style/Logement.module.css";
 import Tags from "../../components/Tags";
 import Collapse from "../../components/Collapse";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Gallery from "../../components/Gallery";
 import { useFetchId } from "../../utils/UseFetch";
 import { useEffect } from "react";
 import Loader from "../../components/Loader";
+import Rating from "../../components/Rating";
 
 const Logement = () => {
   const { logementId } = useParams();
   const { logements, isLogementsLoading, error } = useFetchId(logementId);
   const navigate = useNavigate();
-  const { title, description, location, host, tags, rating, equipments } =
+  const { title, description, location, host, tags, equipments } =
     logements || {};
 
   useEffect(() => {
@@ -32,11 +31,6 @@ const Logement = () => {
   if (isLogementsLoading) {
     return <Loader />;
   } else if (logements) {
-    const ratingNum = parseInt(rating);
-    const ratingNumArray = [...Array(ratingNum)].map((v, i) => i);
-    const restedRating = 5 - ratingNum;
-    const restedRatingArray = [...Array(restedRating)].map((v, i) => i);
-
     return (
       <div className={styles.Container}>
         <Gallery logements={logements} />
@@ -59,22 +53,7 @@ const Logement = () => {
                 alt={host.name}
               />
             </div>
-            <div className={styles.RatingContainer}>
-              {ratingNumArray.map((rating) => (
-                <FontAwesomeIcon
-                  className={styles.Rating}
-                  key={rating}
-                  icon={faStar}
-                />
-              ))}
-              {restedRatingArray.map((rating) => (
-                <FontAwesomeIcon
-                  className={`${styles.Rating} ${styles.Gray}`}
-                  key={rating}
-                  icon={faStar}
-                />
-              ))}
-            </div>
+            <Rating logements={logements} />
           </div>
         </div>
         <div className={styles.CollapseContainer}>

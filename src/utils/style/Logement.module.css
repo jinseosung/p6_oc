@@ -60,20 +60,6 @@
   border-radius: 50%;
 }
 
-.RatingContainer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.9em;
-}
-
-.Rating {
-  font-size: 1.5em;
-}
-
-.Gray {
-  color: #e3e3e3;
-}
-
 .CollapseContainer {
   display: flex;
   justify-content: space-between;
@@ -119,15 +105,6 @@
   .HostImg {
     width: 2em;
     height: 2em;
-  }
-
-  .RatingContainer {
-    gap: 0.4em;
-    order: -1;
-  }
-
-  .Rating {
-    font-size: 0.8em;
   }
 
   .CollapseContainer {
