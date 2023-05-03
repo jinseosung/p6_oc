@@ -1,79 +1,80 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import styles from "../../utils/style/Logement.module.css";
 import Tags from "../../components/Tags";
 import Collapse from "../../components/Collapse";
-import logementsData from "../../datas/logements.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Gallery from "../../components/Gallery";
+import { useFetchId } from "../../utils/UseFetch";
 
 const Logement = () => {
   const { logementId } = useParams();
-  const [filteredLogement] = logementsData.filter(
-    (logement) => logement.id === logementId
-  );
-  const filteredTags = filteredLogement.tags;
-  const filteredRate = parseInt(filteredLogement.rating);
-  const filteredRateArray = [...Array(filteredRate)].map((v, i) => i);
-  const restedRate = 5 - filteredRate;
-  const restedRateArray = [...Array(restedRate)].map((v, i) => i);
+  const { logements, isLogementsLoading, error } = useFetchId(logementId);
+  const navigate = useNavigate();
+  const { title, description, location, host, tags, rating, equipments } =
+    logements;
 
-  return (
-    <div className={styles.Container}>
-      <Gallery filteredLogement={filteredLogement} />
-      <div className={styles.MainContainer}>
-        <div className={styles.MainContainerLeft}>
-          <h1 className={styles.Title}>{filteredLogement.title}</h1>
-          <p className={styles.Description}>{filteredLogement.location}</p>
-          <div className={styles.TagsContainer}>
-            {filteredTags.map((tags, index) => (
-              <Tags key={`${tags}-${index}`} tags={tags} />
-            ))}
+  if (error) {
+    navigate("/Error");
+  }
+
+  if (!isLogementsLoading) {
+    const ratingNum = parseInt(rating);
+    const ratingNumArray = [...Array(ratingNum)].map((v, i) => i);
+    const restedRating = 5 - ratingNum;
+    const restedRatingArray = [...Array(restedRating)].map((v, i) => i);
+
+    return (
+      <div className={styles.Container}>
+        <Gallery logements={logements} />
+        <div className={styles.MainContainer}>
+          <div className={styles.MainContainerLeft}>
+            <h1 className={styles.Title}>{title}</h1>
+            <p className={styles.Description}>{location}</p>
+            <div className={styles.TagsContainer}>
+              {tags.map((tags, index) => (
+                <Tags key={`${tags}-${index}`} tags={tags} />
+              ))}
+            </div>
+          </div>
+          <div className={styles.MainContainerRight}>
+            <div className={styles.HostContainer}>
+              <h2 className={styles.HostTitle}>{host.name}</h2>
+              <img
+                className={styles.HostImg}
+                src={host.picture}
+                alt={host.name}
+              />
+            </div>
+            <div className={styles.RatingContainer}>
+              {ratingNumArray.map((rating) => (
+                <FontAwesomeIcon
+                  className={styles.Rating}
+                  key={rating}
+                  icon={faStar}
+                />
+              ))}
+              {restedRatingArray.map((rating) => (
+                <FontAwesomeIcon
+                  className={`${styles.Rating} ${styles.Gray}`}
+                  key={rating}
+                  icon={faStar}
+                />
+              ))}
+            </div>
           </div>
         </div>
-        <div className={styles.MainContainerRight}>
-          <div className={styles.HostContainer}>
-            <h2 className={styles.HostTitle}>{filteredLogement.host.name}</h2>
-            <img
-              className={styles.HostImg}
-              src={filteredLogement.host.picture}
-              alt={filteredLogement.host.name}
-            />
+        <div className={styles.CollapseContainer}>
+          <div className={styles.CollapseWrapper}>
+            <Collapse title={"Description"} description={description} />
           </div>
-          <div className={styles.RatingContainer}>
-            {filteredRateArray.map((rate) => (
-              <FontAwesomeIcon
-                className={styles.Rating}
-                key={rate}
-                icon={faStar}
-              />
-            ))}
-            {restedRateArray.map((rate) => (
-              <FontAwesomeIcon
-                className={`${styles.Rating} ${styles.Gray}`}
-                key={rate}
-                icon={faStar}
-              />
-            ))}
+          <div className={styles.CollapseWrapper}>
+            <Collapse title={"Équipements"} description={equipments} />
           </div>
         </div>
       </div>
-      <div className={styles.CollapseContainer}>
-        <div className={styles.CollapseWrapper}>
-          <Collapse
-            title={"Description"}
-            description={filteredLogement.description}
-          />
-        </div>
-        <div className={styles.CollapseWrapper}>
-          <Collapse
-            title={"Équipements"}
-            description={filteredLogement.equipments}
-          />
-        </div>
-      </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default Logement;
