@@ -16,7 +16,7 @@ const Logement = () => {
     logements || {};
 
   useEffect(() => {
-    const navigateTo404 = async () => {
+    const navigateTo404 = () => {
       if (!logements) {
         navigate("/404");
       }
