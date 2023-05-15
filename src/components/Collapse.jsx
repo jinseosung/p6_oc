@@ -15,9 +15,9 @@ const Collapse = ({ title, description }) => {
       <div className={styles.TitleContainer} onClick={toggleCollapse}>
         <p className={styles.Title}>{title}</p>
         {isOpen ? (
-          <FontAwesomeIcon className={styles.Arrow} icon={faChevronDown} />
-        ) : (
           <FontAwesomeIcon className={styles.Arrow} icon={faChevronUp} />
+        ) : (
+          <FontAwesomeIcon className={styles.Arrow} icon={faChevronDown} />
         )}
       </div>
       {isOpen && (
