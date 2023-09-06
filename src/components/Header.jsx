@@ -12,21 +12,21 @@ const Header = () => {
       <div className={styles.Nav}>
         <Link
           className={
-            location === "/"
+            location === `${process.env.PUBLIC_URL}/`
               ? `${styles.Link} ${styles.Underline}`
               : styles.Link
           }
-          to="/"
+          to={`${process.env.PUBLIC_URL}/`}
         >
           Accueil
         </Link>
         <Link
           className={
-            location === "/about"
+            location === `${process.env.PUBLIC_URL}/about`
               ? `${styles.Link} ${styles.Underline}`
               : styles.Link
           }
-          to="/about"
+          to={`${process.env.PUBLIC_URL}/about`}
         >
           A Propos
         </Link>

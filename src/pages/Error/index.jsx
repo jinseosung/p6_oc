@@ -8,7 +8,7 @@ const Error = () => {
       <p className={styles.Description}>
         Oups! La page que vous demandez n'existe pas.
       </p>
-      <Link to="/" className={styles.Link}>
+      <Link to={`${process.env.PUBLIC_URL}/`} className={styles.Link}>
         Retourner sur la page d’accueil
       </Link>
     </div>

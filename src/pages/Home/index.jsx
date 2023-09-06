@@ -27,7 +27,7 @@ const Home = () => {
             <Link
               className={styles.Link}
               key={logement.id}
-              to={`/logement/${logement.id}`}
+              to={`${process.env.PUBLIC_URL}/logement/${logement.id}`}
             >
               <Card title={logement.title} cover={logement.cover} />
             </Link>
