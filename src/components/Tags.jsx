@@ -1,7 +1,15 @@
-import styles from "../utils/style/Tags.module.css";
+import styled from "styled-components";
 
 const Tags = ({ tags }) => {
-  return <div className={styles.Tags}>{tags}</div>;
+  const Tags = styled.div`
+    padding: 0.15em 1.3em;
+    background-color: #ff6060;
+    color: #ffffff;
+    font-size: 0.8em;
+    border-radius: 10px;
+  `;
+
+  return <Tags>{tags}</Tags>;
 };
 
 export default Tags;

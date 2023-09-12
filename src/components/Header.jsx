@@ -1,37 +1,70 @@
 import { useLocation } from "react-router-dom";
-import styles from "../utils/style/Header.module.css";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import LogoImg from "../assets/logo.png";
 
 const Header = () => {
+  const Container = styled.div`
+    padding: 2.5em 6.25em 0 6.25em;
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 767px) {
+      padding: 1.2em;
+    }
+  `;
+
+  const Logo = styled.img`
+    width: 13.1em;
+
+    @media (max-width: 767px) {
+      width: 11em;
+    }
+  `;
+
+  const Nav = styled.div`
+    display: flex;
+    gap: 3.5em;
+
+    @media (max-width: 767px) {
+      gap: 0.6em;
+    }
+  `;
+
+  const HomeLink = styled(Link)`
+    color: #ff6060;
+    text-decoration: none;
+    margin: auto;
+    cursor: pointer;
+    text-decoration: ${(props) => (props.underline ? "underline" : "none")};
+
+    &:hover {
+      text-decoration: underline;
+    }
+  `;
+
   const location = useLocation().pathname;
 
   return (
-    <div className={styles.Container}>
-      <img className={styles.Logo} src={LogoImg} alt="Logo" />
-      <div className={styles.Nav}>
-        <Link
-          className={
-            location === `${process.env.PUBLIC_URL}/`
-              ? `${styles.Link} ${styles.Underline}`
-              : styles.Link
-          }
+    <Container>
+      <Logo src={LogoImg} alt="Logo" />
+      <Nav>
+        <HomeLink
+          underline={location === `${process.env.PUBLIC_URL}/` ? true : false}
           to={`${process.env.PUBLIC_URL}/`}
         >
           Accueil
-        </Link>
-        <Link
-          className={
-            location === `${process.env.PUBLIC_URL}/about`
-              ? `${styles.Link} ${styles.Underline}`
-              : styles.Link
+        </HomeLink>
+        <HomeLink
+          underline={
+            location === `${process.env.PUBLIC_URL}/about` ? true : false
           }
           to={`${process.env.PUBLIC_URL}/about`}
         >
           A Propos
-        </Link>
-      </div>
-    </div>
+        </HomeLink>
+      </Nav>
+    </Container>
   );
 };
 
