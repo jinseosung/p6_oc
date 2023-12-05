@@ -134,14 +134,14 @@ const Logement = () => {
   useEffect(() => {
     const navigateTo404 = () => {
       if (!logements) {
-        navigate(`${process.env.PUBLIC_URL}/404`);
+        navigate(`/404`);
       }
     };
     navigateTo404();
   }, [navigate, logements]);
 
   if (error) {
-    navigate(`${process.env.PUBLIC_URL}/404`);
+    navigate(`/404`);
   }
 
   if (isLogementsLoading) {

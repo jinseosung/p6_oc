@@ -49,17 +49,12 @@ const Header = () => {
     <Container>
       <Logo src={LogoImg} alt="Logo" />
       <Nav>
-        <HomeLink
-          underline={location === `${process.env.PUBLIC_URL}/` ? true : false}
-          to={`${process.env.PUBLIC_URL}/`}
-        >
+        <HomeLink underline={location === `/` ? true : false} to={`/`}>
           Accueil
         </HomeLink>
         <HomeLink
-          underline={
-            location === `${process.env.PUBLIC_URL}/about` ? true : false
-          }
-          to={`${process.env.PUBLIC_URL}/about`}
+          underline={location === `/about` ? true : false}
+          to={`/about`}
         >
           A Propos
         </HomeLink>

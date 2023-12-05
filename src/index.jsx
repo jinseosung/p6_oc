@@ -18,10 +18,10 @@ root.render(
       <ScrollToTop />
       <Header />
       <Routes>
-        <Route path={`${process.env.PUBLIC_URL}/`} element={<Home />} />
-        <Route path={`${process.env.PUBLIC_URL}/about`} element={<About />} />
-        <Route path={`${process.env.PUBLIC_URL}/logement/:logementId`} element={<Logement />} />
-        <Route path={`${process.env.PUBLIC_URL}/*`} element={<Error />} />
+        <Route path={`/`} element={<Home />} />
+        <Route path={`/about`} element={<About />} />
+        <Route path={`/logement/:logementId`} element={<Logement />} />
+        <Route path={`/*`} element={<Error />} />
       </Routes>
       <Footer />
     </BrowserRouter>

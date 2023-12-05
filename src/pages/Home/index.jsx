@@ -60,10 +60,7 @@ const Home = () => {
         />
         <MainContainer>
           {logements.map((logement) => (
-            <CardLink
-              key={logement.id}
-              to={`${process.env.PUBLIC_URL}/logement/${logement.id}`}
-            >
+            <CardLink key={logement.id} to={`/logement/${logement.id}`}>
               <Card title={logement.title} cover={logement.cover} />
             </CardLink>
           ))}

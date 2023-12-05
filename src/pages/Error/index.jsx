@@ -54,9 +54,7 @@ const Error = () => {
     <Container>
       <Error>404</Error>
       <Description>Oups! La page que vous demandez n'existe pas.</Description>
-      <ErrorLink to={`${process.env.PUBLIC_URL}/`}>
-        Retourner sur la page d’accueil
-      </ErrorLink>
+      <ErrorLink to={`/`}>Retourner sur la page d’accueil</ErrorLink>
     </Container>
   );
 };

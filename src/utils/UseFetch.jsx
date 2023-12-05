@@ -10,7 +10,7 @@ export const useFetch = () => {
   useEffect(() => {
     const fetchLogements = async () => {
       try {
-        const response = await fetch(`${process.env.PUBLIC_URL}/data/logements.json`);
+        const response = await fetch(`/data/logements.json`);
         const data = await response.json();
         setLogements(data);
       } catch (err) {
@@ -35,7 +35,7 @@ export const useFetchId = (logementId) => {
   useEffect(() => {
     const fetchLogements = async () => {
       try {
-        const response = await fetch(`${process.env.PUBLIC_URL}/data/logements.json`);
+        const response = await fetch(`/data/logements.json`);
         const data = await response.json();
         setLogements(data.find((logement) => logement.id === logementId));
       } catch (err) {
