@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
-const Card = ({ id, title, cover }) => {
+type CardProps = {
+  id: string;
+  title: string;
+  cover: string;
+};
+
+const Card: React.FC<CardProps> = ({ id, title, cover }) => {
   const Container = styled.figure`
     width: 100%;
     height: 100%;

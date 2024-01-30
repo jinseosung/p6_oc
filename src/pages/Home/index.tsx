@@ -61,7 +61,11 @@ const Home = () => {
         <MainContainer>
           {logements.map((logement) => (
             <CardLink key={logement.id} to={`/logement/${logement.id}`}>
-              <Card title={logement.title} cover={logement.cover} />
+              <Card
+                id={logement.id}
+                title={logement.title}
+                cover={logement.cover}
+              />
             </CardLink>
           ))}
         </MainContainer>

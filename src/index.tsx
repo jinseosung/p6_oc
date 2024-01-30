@@ -10,7 +10,7 @@ import Error from "./pages/Error";
 import ScrollToTop from "./utils/ScrollToTop";
 import "./utils/style/style.css";
 
-const container = document.getElementById("root");
+const container = document.getElementById("root") as HTMLElement;
 const root = createRoot(container);
 root.render(
   <React.StrictMode>
