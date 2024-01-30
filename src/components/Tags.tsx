@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-const Tags = ({ tags }) => {
+type TagsProps = {
+  tags: string;
+};
+
+const Tags: React.FC<TagsProps> = ({ tags }) => {
   const Tags = styled.div`
     padding: 0.15em 1.3em;
     background-color: #ff6060;

@@ -4,7 +4,12 @@ import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
-const Collapse = ({ title, description }) => {
+type CollapseProps = {
+  title: string;
+  description: string | string[];
+};
+
+const Collapse: React.FC<CollapseProps> = ({ title, description }) => {
   const Container = styled.div`
     display: flex;
     flex-direction: column;

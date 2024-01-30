@@ -31,7 +31,7 @@ const Header = () => {
     }
   `;
 
-  const HomeLink = styled(Link)`
+  const HomeLink = styled(Link)<{ underline: boolean }>`
     color: #ff6060;
     text-decoration: none;
     margin: auto;

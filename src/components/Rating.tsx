@@ -1,8 +1,13 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { Logement } from "../types/logements";
 
-const Rating = (props) => {
+type RatingProps = {
+  logements: Logement;
+};
+
+const Rating: React.FC<RatingProps> = (props) => {
   const RatingContainer = styled.div`
     display: flex;
     justify-content: flex-end;
@@ -21,7 +26,7 @@ const Rating = (props) => {
       font-size: 0.8em;
     }
   `;
-  
+
   const Grey = styled(Rating)`
     color: #e3e3e3;
   `;

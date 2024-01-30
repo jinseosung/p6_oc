@@ -3,8 +3,13 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { Logement } from "../types/logements";
 
-const Gallery = (props) => {
+type GalleryProps = {
+  logements: Logement;
+};
+
+const Gallery: React.FC<GalleryProps> = (props) => {
   const Container = styled.div`
     display: flex;
     justify-content: center;
