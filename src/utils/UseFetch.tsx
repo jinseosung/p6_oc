@@ -39,7 +39,9 @@ export const useFetch = (): useFetchReturn => {
   return { logements, isLogementsLoading, error };
 };
 
-export const useFetchId = (logementId: string): useFetchIdReturn => {
+export const useFetchId = (
+  logementId: string | undefined
+): useFetchIdReturn => {
   const [logements, setLogements] = useState<Logement>({
     id: "",
     title: "",
