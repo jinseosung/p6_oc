@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-const Background = ({ img, title }) => {
+type BackgroundProps = {
+  img: string;
+  title?: string;
+};
+
+const Background: React.FC<BackgroundProps> = ({ img, title }) => {
   const Container = styled.div`
     display: flex;
     justify-content: center;
