@@ -1,8 +1,21 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Logement } from "../types/logements";
 
-export const useFetch = () => {
-  const [logements, setLogements] = useState([]);
+type useFetchReturn = {
+  logements: Logement[];
+  isLogementsLoading: boolean;
+  error: boolean;
+};
+
+type useFetchIdReturn = {
+  logements: Logement;
+  isLogementsLoading: boolean;
+  error: boolean;
+};
+
+export const useFetch = (): useFetchReturn => {
+  const [logements, setLogements] = useState<Logement[]>([]);
   const [isLogementsLoading, setLogementsLoading] = useState(true);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
@@ -26,8 +39,22 @@ export const useFetch = () => {
   return { logements, isLogementsLoading, error };
 };
 
-export const useFetchId = (logementId) => {
-  const [logements, setLogements] = useState([]);
+export const useFetchId = (logementId: string): useFetchIdReturn => {
+  const [logements, setLogements] = useState<Logement>({
+    id: "",
+    title: "",
+    cover: "",
+    pictures: Array(5).fill(""),
+    description: "",
+    host: {
+      name: "",
+      picture: "",
+    },
+    rating: "",
+    location: "",
+    equipments: Array(5).fill(""),
+    tags: Array(2).fill(""),
+  });
   const [isLogementsLoading, setLogementsLoading] = useState(true);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
@@ -37,7 +64,10 @@ export const useFetchId = (logementId) => {
       try {
         const response = await fetch(`/data/logements.json`);
         const data = await response.json();
-        setLogements(data.find((logement) => logement.id === logementId));
+        const foundLogement = data.find(
+          (logement: Logement) => logement.id === logementId
+        );
+        setLogements(foundLogement);
       } catch (err) {
         console.log(err);
         setError(true);
